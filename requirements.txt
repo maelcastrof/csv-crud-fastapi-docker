@@ -1,5 +1,4 @@
 fastapi
 uvicorn
-panda
+pandas
 flask
-os
