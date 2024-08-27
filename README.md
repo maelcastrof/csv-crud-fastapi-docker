@@ -23,7 +23,7 @@ To build the Docker image for this project, follow these steps:
    cd /path/to/your-csv-crud-fastapi-docker
 
 Execute the command:
-   `docker build -t csv-crud-fastapi-docker`
+   `docker build -t csv-crud-fastapi-docker` .
 
 Once the image is built, you can run a container with the following command:
     `docker run -d -p 8001:8000 csv-crud-fastapi-docker`

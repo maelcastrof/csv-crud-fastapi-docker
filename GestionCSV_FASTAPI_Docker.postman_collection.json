@@ -126,6 +126,37 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Numero di righe nel CSV",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"count"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
