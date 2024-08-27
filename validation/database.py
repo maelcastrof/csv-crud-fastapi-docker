@@ -1,7 +1,5 @@
 import pandas as pd
 import os
-from app.crud import count_lines_in_csv
-from flask import jsonify
 
 
 CSV_FILE = 'data/data.csv'
@@ -17,9 +15,3 @@ def write_csv(df):
     """Writes the pandas Dataframe to csv file."""
     df.to_csv(CSV_FILE, index=False)
 
-def line_count():
-    try:
-        line_count = count_lines_in_csv(CSV_FILE)
-        return jsonify({'count': 2}), 200
-    except FileNotFoundError:
-        return jsonify({'error: File not found'}), 404

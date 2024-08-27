@@ -10,10 +10,10 @@ def get_users():
 
 def get_user(id: int):
     """Fetch user by ID"""
-    df= read_csv
+    df = read_csv()  
     if id not in df['id'].values:
-        raise HTTPException(status_code=404, detail = "User not found")
-    return df[df['id'] == id ].to_dict(orient='records')[0]
+        raise HTTPException(status_code=404, detail="User not found")
+    return df[df['id'] == id].to_dict(orient='records')[0]
 
 def create_user(id: int, user: UserCreate):
     """Create a new user in CSV."""
@@ -61,11 +61,6 @@ def delete_user(id: int):
     write_csv(df)
     return {"message": "Item deleted successfully"}
 
-def count_lines_in_csv(file_path):
-    try:
-        with open(file_path, 'r') as file:
-            return sum(1 for line in file)
-    except FileNotFoundError:
-        return -1
+
     
 

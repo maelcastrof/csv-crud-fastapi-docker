@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from .models import UserCreate, UserUpdate
 from app import crud
+import os
 
 app = FastAPI()
 CSV_FILE = 'data/data.csv'
@@ -20,7 +21,7 @@ def read_users():
      return crud.get_users()
 
 #Not working
-@app.get("items/{id}")
+@app.get("/items/{id}")
 def read_user(id: int):
      """Fetch a user by id"""
      return crud.get_user(id)
@@ -34,6 +35,15 @@ def read_user(id: int, user: UserUpdate):
 def read_user(id:int):
      """Delete an user by id"""
      return crud.delete_user(id)
+
+#Additional path for counting
+@app.get("/count")
+def count_lines():
+     if os.path.exists(CSV_FILE):
+          with open(CSV_FILE, mode="r") as file:
+               return {"count": sum(1 for _ in file) -1}
+          
+     return {"count": 0}
 
 
 
